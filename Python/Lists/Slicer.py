@@ -1,0 +1,5 @@
+a=eval(input('Enter a list: '))
+s=int(input('Enter the starting index: '))
+e=int(input('Enter the ending index: '))
+print()
+print('The slice is: ',a[s:e+1])

@@ -1,0 +1,5 @@
+a=eval(input('Enter a tuple: '))
+b=eval(input('Enter info. to be checked: '))
+c=a.count(b)
+print()
+print('No. of occurrences of the entered info. in the given tuple is: ',c)
