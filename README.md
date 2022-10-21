@@ -1,2 +1,4 @@
-# Eden
-Greetings! i like to code and i update this repository with the ones i finish. peace :)
+
+Greetings! 
+i like to code and i update this repository with the ones that i'm proud of lol
+peace :)
