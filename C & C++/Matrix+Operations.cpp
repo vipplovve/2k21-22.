@@ -95,23 +95,27 @@ int main()
             cout<<endl;
             }
             break;
+
             case 3: //scalar multiplication
             {
             int r1,c1,k;
             cout<<"Enter order of Matrix: ";
             cin>>r1>>c1;
             int arr1[r1][c1];
+
             for(int x=0;x<=r1-1;x++)
             {
                 for(int y=0;y<=c1-1;y++)
                 cin>>arr1[x][y];
 
             }
+            
             cout<<endl;
             cout<<"Enter value of scalar: ";
             cin>>k;
             cout<<endl;
             int ans[r1][c1];
+
             for(int x=0;x<=r1-1;x++)
             {
                 for(int y=0;y<=c1-1;y++)

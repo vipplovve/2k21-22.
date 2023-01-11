@@ -350,30 +350,73 @@ int main()
             case 15: //Palindromic pyramid
 
                 int i, j, rows, k, m;  
-                printf (" Enter a number to define the rows: \n");  
-                scanf ("%d", &rows);   
-                printf("\n");  
-                // outer loop define the total rows and i should be less than equal to rows  
+                cout<<" Enter a number to define the rows: ";  
+                cin>>rows;   
+                cout<<endl;  
+
                 for ( i = 1; i <= rows; i++)  
                 {  
-                    // inner loop define j should be less than equal to rows- i  
+
                     for ( j = 1; j <= rows-i; j++)  
                     {     
-                        printf (" ");   
+                        cout<<" ";   
                     }  
-                    // use for loop where k is less than equal to i  
+
                     for (m = i; m >1; m--)  
                     {  
-                        printf("%d", m); // print the number  
+                        cout<<m;   
                     } 
 
                     for ( k = 1; k <= i; k++)  
                     {  
-                        printf ("%d", k); // print the number  
+                        cout<<k;
                     }  
                      
-                    printf ("\n");  
+                    cout<<endl;  
                 }  
+                break;
+
+            case 16: //kite
+
+                int num;
+                cout<<"Enter an odd number: ";
+                cin>>num;
+                if(num%2==0)
+                cout<<"Invalid Input.";
+                else
+                {
+                    for(int i=1;i<(num+1)/2;i++)
+                    {
+                        for(int y=(num+1)/2;y>i;y--)
+                            cout<<"  ";
+            
+                        for(int z=1;z<=2*i-1;z++)
+                        {
+                        if(((z==1)||(z==i))||(z==(2*i)-1))
+                        cout<<"* ";
+                        else
+                            cout<<"  ";
+                        }
+                        cout<<endl;
+                    
+                    }
+                    for(int x=0;x<num;x++)
+                    cout<<"* ";
+                    cout<<endl;
+                    for(int i=(num-1)/2;i>0;i--)
+                    {
+                        for(int y=(num+1)/2;y>i;y--)
+                            cout<<"  ";
+                        for(int z=1;z<=2*i-1;z++)
+                        {
+                        if(((z==1)||(z==i))||(z==(2*i)-1))
+                        cout<<"* ";
+                        else
+                            cout<<"  ";
+                        }
+                        cout<<endl;
+                    }
+                }
                 break;
 
             default:
