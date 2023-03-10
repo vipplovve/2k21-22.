@@ -21,27 +21,26 @@ class Tnode //a tree node object.
     friend float sum(Tnode *Root);
 };
 
-Tnode* createTree(Tnode * &Root) //creation function.
+Tnode* createTree(Tnode * &Root)
 {
     float val;
     cout<<"Enter Data: ";
     cin>>val;
-    
-    Root = new Tnode(val);
 
-    if(val == -1) //base case for no node.
+    if(val == -1)
     return NULL;
 
-    else //recursive call for left and right sub-tree creation.
+    else
     {
+        Root = new Tnode(val);
         cout<<"\nTo the Left of "<<val<<" : - ";
         Root->leftson = createTree(Root->leftson);
         cout<<"\nTo the Right of "<<val<<" : - ";
-        Root->rightson = createTree(Root->rightson);
-
+        Root->rightson = createTree(Root->rightson);   
     }
 
     return Root;
+
 }
 
 float sum(Tnode *Tree) // a function to calculate sum of all nodes.

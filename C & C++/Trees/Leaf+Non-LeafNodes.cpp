@@ -4,7 +4,7 @@ using namespace std;
 class Tnode
 {
 
-    float value;
+    int value;
     Tnode *leftson;
     Tnode *rightson;
 
@@ -19,7 +19,7 @@ class Tnode
 
     //making friend functions to access private class members: -
 
-    friend Tnode* createTree(Tnode * Root);
+    friend Tnode* createTree(Tnode * &Root);
     friend int leafCount(Tnode * Root); 
     friend int nonleafCount(Tnode * Root, int&); 
 };
