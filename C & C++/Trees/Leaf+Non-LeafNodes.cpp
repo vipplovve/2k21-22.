@@ -17,11 +17,14 @@ class Tnode
         rightson = NULL;
     }
 
-    friend Tnode* createTree (Tnode * &Root);
-    friend int leafnonleaf(Tnode * Root,char c); 
+    //making friend functions to access private class members: -
+
+    friend Tnode* createTree (Tnode * Root);
+    friend int leafCount(Tnode * Root); 
+    friend int nonleafCount(Tnode * Root, int&); 
 };
 
-Tnode* createTree (Tnode * &Tree) // a recursive f(n) to create a tree.
+Tnode* createTree (Tnode * Tree) // a recursive f(n) to create a tree.
 {
     int item;
     cout<<"Enter value: ";
@@ -45,50 +48,45 @@ Tnode* createTree (Tnode * &Tree) // a recursive f(n) to create a tree.
 //2 5
 //3 4 6 7
 
-int leafnonleaf(Tnode * Tree,char c)
+int leafCount(Tnode *Root) //a function to count no. of leaf nodes.
 {
-    static int count =0;
-    if(c == 'l')
+    if(Root == NULL) //finding a null pointer i.e. no node.
+    return 0;
+
+    else
     {
-        if(Tree != NULL)
-        {
-            leafnonleaf(Tree->leftson,'c');
-
-            if(Tree->leftson == NULL && Tree->rightson == NULL)
-                cout<<1;
-            
-            leafnonleaf(Tree->rightson,'c');
-        }
-
-        else
-            return 0;
+        if(!(Root->leftson) && !(Root->rightson)) //a leaf node.
+            return 1;
+        
+        return leafCount(Root->leftson) + leafCount(Root->rightson); //recursive call to traverse left and right sub-trees.
     }
-    else if(c == 'n')
+}
+
+int nonleafCount(Tnode *Root,int &count) //counting non-leaf nodes.
+{
+    if(Root == NULL) // no node.
+    return 0;
+
+    else //inOrder Traversal method is implemented.
     {
-        if(Tree != NULL)
-        {
-            leafnonleaf(Tree->leftson,'n');
-
-            if(Tree->leftson != NULL || Tree->rightson != NULL)
-                count++;
-            
-            leafnonleaf(Tree->rightson,'n');
-        }
-
-        else
-            return 0;
+        nonleafCount(Root->leftson,count);
+        if(!(Root->leftson == NULL && Root->rightson == NULL))
+            count++;
+        nonleafCount(Root->rightson,count);
     }
-    return count;
 }
 
 int main()
 {
     Tnode *Root = NULL;
-    createTree(Root);
 
-    int leaf = leafnonleaf(Root,'l');
-    int nonleaf = leafnonleaf(Root,'n');
+    Root = createTree(Root);
+    int leaf = leafCount(Root);
+    int count = 0;
+    nonleafCount(Root,count);
 
-    cout<<leaf<<' '<<nonleaf<<' '<<endl;
+    cout<<"\nTotal Leaf Nodes: "<<leaf<<endl;
+    cout<<"\nTotal Non-Leaf Nodes: "<<count<<endl<<endl;
+
     return 0;
 }

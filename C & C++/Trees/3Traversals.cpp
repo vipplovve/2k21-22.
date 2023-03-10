@@ -48,7 +48,7 @@ Tnode* createTree (Tnode * &Tree) // a recursive f(n) to create a tree.
 //2 5
 //3 4 6 7
 
-void preOrder(Tnode *Tree)
+void preOrder(Tnode *Tree) //Root - Left - Right.
 {
     
     if(Tree != NULL)
@@ -62,7 +62,7 @@ void preOrder(Tnode *Tree)
         return;
 }
 
-void inOrder(Tnode *Tree)
+void inOrder(Tnode *Tree) //Left - Root - Right.
 {
     
     if(Tree != NULL)
@@ -76,7 +76,7 @@ void inOrder(Tnode *Tree)
         return;
 }
 
-void postOrder(Tnode *Tree)
+void postOrder(Tnode *Tree) //Left - Right - Root.
 {
     
     if(Tree != NULL)
