@@ -92,7 +92,7 @@ int main()
     Tnode *Root = NULL;
     createTree(Root);
 
-    BalancedTree(Root).balanced?cout<<"\nYES\n":cout<<"\nNO\n";
+    BalancedTree(Root).balanced?cout<<"\nThis Binary Tree is Balanced..\n\n":cout<<"\nThis Binary Tree isn't Balanced..\n\n";
 
     return 0;
 }

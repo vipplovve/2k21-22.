@@ -4,7 +4,7 @@ using namespace std;
 class Tnode
 {
 
-    int value;
+    float value;
     Tnode *leftson;
     Tnode *rightson;
 
@@ -19,28 +19,32 @@ class Tnode
 
     //making friend functions to access private class members: -
 
-    friend Tnode* createTree (Tnode * Root);
+    friend Tnode* createTree(Tnode * Root);
     friend int leafCount(Tnode * Root); 
     friend int nonleafCount(Tnode * Root, int&); 
 };
 
-Tnode* createTree (Tnode * Tree) // a recursive f(n) to create a tree.
+Tnode* createTree(Tnode * &Root) //creation function.
 {
-    int item;
-    cout<<"Enter value: ";
-    cin>>item;
-    Tree = new Tnode(item);
+    float val;
+    cout<<"Enter Data: ";
+    cin>>val;
+    
+    Root = new Tnode(val);
 
-    if(item == -1) //base condition to stop creating further nodes.
+    if(val == -1) //base case for no node.
     return NULL;
 
-    cout<<"Enter value to the Left of "<<item<<" \n"; //creating a left sub-tree.
-    Tree->leftson = createTree(Tree->leftson);
+    else //recursive call for left and right sub-tree creation.
+    {
+        cout<<"\nTo the Left of "<<val<<" : - ";
+        Root->leftson = createTree(Root->leftson);
+        cout<<"\nTo the Right of "<<val<<" : - ";
+        Root->rightson = createTree(Root->rightson);
 
-    cout<<"Enter value to right of "<<item<<" \n";  //creating a right sub-tree.
-    Tree->rightson = createTree(Tree->rightson);
+    }
 
-    return Tree;
+    return Root;
 }
 
 //use sequence 1 2 3 -1 -1 4 -1 -1 5 6 -1 -1 7 -1 -1 to generate a B.T of the form: -

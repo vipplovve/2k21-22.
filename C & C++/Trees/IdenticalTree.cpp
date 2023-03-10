@@ -75,7 +75,7 @@ int main()
     cout<<"\nEnter Tree #2: -\n\n";
     createTree(Root2);
 
-    IdenticalTrees(Root1,Root2)?cout<<"\nIDENTICAL\n\n":cout<<"\nNON-IDENTICAL\n\n";
+    IdenticalTrees(Root1,Root2)?cout<<"\nThe Given Binary Trees are Identical..\n\n":cout<<"\nThe Given Binary Trees aren't Identical..\n\n";
 
     return 0;
 }

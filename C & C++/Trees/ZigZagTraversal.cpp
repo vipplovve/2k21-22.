@@ -6,7 +6,7 @@ using namespace std;
 class Tnode
 {
 
-    int value;
+    float value;
     Tnode *leftson;
     Tnode *rightson;
 
@@ -23,23 +23,27 @@ class Tnode
     friend Tnode* createTree (Tnode * &Root);
 };
 
-Tnode* createTree (Tnode * &Tree) // a recursive f(n) to create a tree.
+Tnode* createTree(Tnode * &Root) //creation function.
 {
-    int item;
-    cout<<"Enter value: ";
-    cin>>item;
-    Tree = new Tnode(item);
+    float val;
+    cout<<"Enter Data: ";
+    cin>>val;
+    
+    Root = new Tnode(val);
 
-    if(item == -1) //base condition to stop creating further nodes.
+    if(val == -1) //base case for no node.
     return NULL;
 
-    cout<<"Enter value to the Left of "<<item<<" \n"; //creating a left sub-tree.
-    Tree->leftson = createTree(Tree->leftson);
+    else //recursive call for left and right sub-tree creation.
+    {
+        cout<<"\nTo the Left of "<<val<<" : - ";
+        Root->leftson = createTree(Root->leftson);
+        cout<<"\nTo the Right of "<<val<<" : - ";
+        Root->rightson = createTree(Root->rightson);
 
-    cout<<"Enter value to right of "<<item<<" \n";  //creating a right sub-tree.
-    Tree->rightson = createTree(Tree->rightson);
+    }
 
-    return Tree;
+    return Root;
 }
 
 void ZigZagTraversal(Tnode *Root)
