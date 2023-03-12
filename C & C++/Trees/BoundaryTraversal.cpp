@@ -55,7 +55,7 @@ void traverseLeft(Tnode *Root) //printing all the leftmost non leaf nodes.
     else
     {
         cout<<Root->value<<' ';
-        if(Root->leftson != NULL)
+        if(Root->leftson != NULL)x
             traverseLeft(Root->leftson);
         else
             traverseLeft(Root->rightson);
