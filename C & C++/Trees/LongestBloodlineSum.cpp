@@ -29,7 +29,7 @@ Tnode* createTree(Tnode * &Root)
     cout<<"Enter Data: ";
     cin>>val;
 
-    if(val == int('N'))   //base case to stop.
+    if(val == -1)   //base case to stop.
     return NULL;
 
     else //creating left and right subtrees.
@@ -68,6 +68,8 @@ float longestBloodlineSum(Tnode *Root,float sum, float &ans,int &maxlen, int len
         longestBloodlineSum(Root->leftson,sum,ans,maxlen,length+1);
         longestBloodlineSum(Root->rightson,sum,ans,maxlen,length+1);
     }
+
+    return 0;
 }
 
 int main()
