@@ -5,7 +5,7 @@ void print(vector<char>v)
 {
     int len=v.size();
     for(int x=0;x<len;x++)
-    cout<<v[x]<<" ";
+    cout<<v[x]<<' ';
 }
 void powerset(vector<char> v,vector<char> output, int index, vector<vector<char>> *a) 
 {
