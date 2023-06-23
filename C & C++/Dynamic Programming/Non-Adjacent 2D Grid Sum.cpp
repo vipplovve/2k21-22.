@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int Sum2(long n, long k, long left, vector<vector<long long>> data, vector<vector<long long>> &dp) //memoization.
+long long Sum2(long n, long k, long left, vector<vector<long long>> data, vector<vector<long long>> &dp) //memoization.
 {
     if(n==0)
     {
