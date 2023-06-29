@@ -13,7 +13,7 @@ int UnboundedKnapsack(int s, int w[], int v[], int c) //tabulation.
         {
             int left = dp[x-1][y];
 
-            int stolen = (w[x]<=y)?(v[x] + dp[x][y-w[x]]):0;
+            int stolen = (w[x]<=y)?(v[x] + dp[x][y-w[x]]):-1e9;
 
             dp[x][y] = max(left,stolen);
         }
